@@ -1,12 +1,11 @@
-const express = require('express')
+const express = require('express');
 const server = express();
 
 const hostname = '0.0.0.0';
 const port = 3000;
 
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://mongo/apinodejs')
-// moongoose.connect('mongodb://localhost:27017/apinodejs');  // Without docker
+mongoose.connect('mongodb://mongo/apinodejs');
 
 const bodyParser = require('body-parser');
 server.use(bodyParser.urlencoded());
