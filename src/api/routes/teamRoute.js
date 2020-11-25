@@ -1,6 +1,6 @@
 module.exports = (server) => {
     const teamController = require('../controllers/teamController');
-    const jwtMiddleware = require('../middleware/jwtMiddleware')
+    const jwtMiddleware = require('../middlewares/jwtMiddleware')
 
     server.route('/teams')
         //all

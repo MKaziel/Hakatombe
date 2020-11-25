@@ -1,6 +1,6 @@
 module.exports = (server) => {
     const userController= require('../controllers/userController');
-    const jwtMiddleware = require('../middleware/jwtMiddleware')
+    const jwtMiddleware = require('../middlewares/jwtMiddleware')
 
 
     server.route('/users')

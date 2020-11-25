@@ -1,6 +1,6 @@
 module.exports = (server) => {
     const inscriptionController = require('../controllers/inscriptionController');
-    const jwtMiddleware = require('../middleware/jwtMiddleware')
+    const jwtMiddleware = require('../middlewares/jwtMiddleware')
 
 
     server.route('/inscription')

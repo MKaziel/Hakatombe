@@ -1,6 +1,6 @@
 module.exports = (server) => {
     const questionnaireController = require('../controllers/questionnaireController');
-    const jwtMiddleware = require('../middleware/jwtMiddleware')
+    const jwtMiddleware = require('../middlewares/jwtMiddleware')
 
     
     server.route('/questionnaire')
