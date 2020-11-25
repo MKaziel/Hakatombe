@@ -1,7 +1,7 @@
 version: '3.6'
 services:
   node:
-    container_name: api_node
+    container_name: hakathon_api_node
     image: 'node:latest'
     working_dir: /home/node/app
     command:
@@ -19,7 +19,7 @@ services:
     env_file:
       - .env
   mongo:
-    container_name: api_mongo
+    container_name: hakathon_api_mongo
     image: mongo
     ports:
       - "27017:27017"
