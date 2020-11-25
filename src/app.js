@@ -14,10 +14,9 @@ server.use(bodyParser.json());
 // const postRoute = require('./api/routes/postRoute');
 // const commentRoute = require('./api/routes/commentRoute');
 // const userRoute = require('./api/routes/userRoute');
-const userRoute = require('./test/src/App');
 
 // postRoute(server);
 // commentRoute(server);
-userRoute(server);
+// userRoute(server);
 
 server.listen(port, hostname);
