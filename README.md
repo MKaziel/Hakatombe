@@ -1,7 +1,6 @@
 # Hakatombe
 Project Developpement : Register for a Hackathon weekend with multiple schools
 
-
 ## Rôles
 - Administrator : admin
 - Type of Users : 
@@ -10,6 +9,12 @@ Project Developpement : Register for a Hackathon weekend with multiple schools
   + User : user
 - Everyone : guest
 
+# Back Repository
+https://github.com/MKaziel/Hakatombe
+# Front Repository
+https://github.com/MKaziel/hakatombe_front
+
+# Developpeurs
 Developped by:
   - Alexandre SZABO
   - Zakia GHOULI
