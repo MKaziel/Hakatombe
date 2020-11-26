@@ -11,7 +11,11 @@ let userSchema = new Schema({
         type: String,
         required: "Le mdp est requis"
     },
-    name: {
+    lname: {
+        type: String,
+        required: "Merci d'indiqué le nom de la personne"
+    },
+    fname: {
         type: String,
         required: "Merci d'indiqué le nom de la personne"
     },
