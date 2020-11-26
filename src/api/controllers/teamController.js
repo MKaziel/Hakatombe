@@ -1,6 +1,6 @@
 const middleware = require('../middlewares/jwtMiddleware');
 const Team = require('../models/teamModel');
-const User = requrie('../models/userModels');
+const User = require('../models/userModels');
 
 exports.get_all_team = (request,response) => {
     Team.find({}, (error, teams) => {
