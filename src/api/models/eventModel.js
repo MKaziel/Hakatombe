@@ -14,6 +14,6 @@ let eventSchema = new Schema({
         type:String,
         required: "Veuillez décrire l'évènement"
     }
-})
+});
 
-module.exports = mongoose.model('Event', eventSchema)
+module.exports = mongoose.model('Event', eventSchema);
