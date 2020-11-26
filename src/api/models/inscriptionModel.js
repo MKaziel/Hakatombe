@@ -7,6 +7,8 @@ let inscirptionSchema = new Schema({
     },
     team_id:{
         type:String,
-    }
-    
+    },
+    event_id:{
+        type:String,
+    }    
 })

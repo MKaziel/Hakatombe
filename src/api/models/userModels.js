@@ -17,6 +17,9 @@ let userSchema = new Schema({
     },
     school_id:{
         type:String
+    },
+    team_id:{
+        type:String
     }
 });
 
