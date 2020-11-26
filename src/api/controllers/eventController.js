@@ -13,7 +13,8 @@ exports.list_all_event = (request,response) => {
             response.status(200);
             response.json(events)
         }
-    })}
+    })
+}
 
 exports.create_an_event = (request,response) => {
     let new_event = new Event(request.body);
