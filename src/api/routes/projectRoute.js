@@ -21,3 +21,4 @@ module.exports = (server) => {
         .get(projectController.get_all_projects_of_team)
 
 }
+

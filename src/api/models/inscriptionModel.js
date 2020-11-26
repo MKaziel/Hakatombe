@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
-let inscirptionSchema = new Schema({
+let inscriptionSchema = new Schema({
     project_id: {
         type: String,
     },
@@ -11,4 +11,6 @@ let inscirptionSchema = new Schema({
     event_id:{
         type:String,
     }    
-})
+});
+
+module.exports = mongoose.model('Inscription', inscriptionSchema);

@@ -10,4 +10,6 @@ let schoolSchema = new Schema({
         type:String,
         required:"Merci de donné la localisation"
     }
-})
+});
+
+module.exports = mongoose.model('School', schoolSchema);

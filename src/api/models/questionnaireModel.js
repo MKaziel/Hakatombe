@@ -26,4 +26,6 @@ let questionnaireSchema = new Schema({
         type: String,
         required:"Merci de remplir toutes les questions"
     },
-})
+});
+
+module.exports = mongoose.model('Questionnaire', questionnaireSchema);

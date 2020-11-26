@@ -33,4 +33,6 @@ let projectSchema = new Schema({
     questionnaire_id:{
         type:String,
     }
-})
+});
+
+module.exports = mongoose.model('Project', projectSchema);

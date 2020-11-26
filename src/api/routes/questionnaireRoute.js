@@ -16,5 +16,4 @@ module.exports = (server) => {
         .put(questionnaireController.update_a_questionnaire)
         //admin
         .delete(questionnaireController.delete_a_questionnaire);
-
 }
