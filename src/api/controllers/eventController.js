@@ -46,9 +46,34 @@ exports.get_an_event = (request,response) => {
     })}
 
 exports.update_an_event = (request,response) => {
-    return null;
+    Event.findByIdAndUpdate(request.params.event_id, request.body, {
+        new: true
+    }, (error, event) => {
+        if (error) {
+            response.status(500);
+            console.log(error);
+            response.json({
+                message: "Erreur serveur."
+            })
+        } else {
+            response.status(200);
+            response.json(event)
+        }
+    })
 }
 
 exports.delete_an_event = (request,response) => {
-    return null;
-}
+    Event.findByIdAndRemove(request.params.event_id, (error, event) => {
+        if (error) {
+            response.status(500);
+            console.log(error);
+            response.json({
+                message: "Erreur serveur."
+            })
+        } else {
+            response.status(200);
+            response.json({
+                message: "Evenement supprimé !"
+            })
+        }
+    })}
