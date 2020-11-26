@@ -32,6 +32,9 @@ let projectSchema = new Schema({
     },
     questionnaire_id:{
         type:String,
+    },
+    team_id:{
+        type:String,
     }
 });
 
