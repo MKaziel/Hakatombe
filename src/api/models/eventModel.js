@@ -15,3 +15,5 @@ let eventSchema = new Schema({
         required: "Veuillez décrire l'évènement"
     }
 })
+
+module.exports = mongoose.model('Event', eventSchema)
