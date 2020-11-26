@@ -17,7 +17,19 @@ exports.list_all_project = (request,response) => {
 }
 
 exports.create_a_project = (request,response) => {
-    return null;
+    let new_project = new Project(request.body);
+    new_project.save((error, project) => {
+        if (error) {
+            response.status(500);
+            console.log(error);
+            response.json({
+                message: "Erreur serveur."
+            });
+        } else {
+            response.status(201);
+            response.json(project);
+        }
+    });
 }
 
 exports.get_a_project = (request,response) => {

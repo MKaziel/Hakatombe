@@ -48,7 +48,7 @@ exports.get_a_school = (request,response) => {
 }
 
 exports.update_a_school = (request,response) => {
-    School.findByIdAndUpdate(request.params.school_id, (error, school) => {
+    School.findByIdAndUpdate(request.params.school_id,request.body, {new:true}, (error, school) => {
         if (error) {
             response.status(500);
             console.log(error);
