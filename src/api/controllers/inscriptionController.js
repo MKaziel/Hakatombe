@@ -113,5 +113,28 @@ exports.get_all_inscriptions_of_team = (request, response) => {
 
 
 exports.get_an_inscription_of_project = (request, response) => {
-    return null;
-}
+    Project.findById(request.params.project_id, (error, project) => {
+        if (error) {
+            response.status(500)
+            console.log(error)
+            response.json({
+                message: "Erreur Serveur"
+            })
+        } else {
+            Inscription.find({
+                project_id: request.params.project_id
+            }, (error, inscriptions) => {
+                if (error) {
+                    response.status(500);
+                    console.log(error);
+                    response.json({
+                        message: "Erreur serveur."
+                    })
+                } else {
+                    response.status(200);
+                    response.json(inscriptions)
+                }
+            })
+        }
+
+    })}
