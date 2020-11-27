@@ -26,7 +26,7 @@ server.use(bodyParser.json());
 server.use(cors(corsOptions));
 
 //Configuration du port d'écoute du serveur
-app.listen(80, function () {
+server.listen(80, function () {
     console.log('CORS-enabled web server listening on port 80')
 })
 
