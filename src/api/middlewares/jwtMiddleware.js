@@ -36,7 +36,7 @@ exports.verify_token_and_roles = (req,res,next) => {
                     console.log(jwt.decode(token)); 
                 } else {
                     res.status(403)
-                    res.json({message:"PLus loin tu n'iras pas !"});
+                    res.json({message:"Plus loin tu n'iras pas !"});
                 }
             }
         })
@@ -46,6 +46,12 @@ exports.verify_token_and_roles = (req,res,next) => {
     }
 }
 
+/**
+ * Fonction de verification du token, n'autorisant que les administrateurs
+ * @param {*} req Requête fourni à l'API
+ * @param {*} res Response envoyer par la fonction
+ * @param {*} next Fonction next() pour passer à la suite 
+ */
 exports.verify_token_admin = (req,res,next) => {
     let token = req.headers['authorization'];
     let role = "admin";
@@ -61,7 +67,7 @@ exports.verify_token_admin = (req,res,next) => {
                     console.log(jwt.decode(token)); 
                 } else {
                     res.status(403)
-                    res.json({message:"PLus loin tu n'iras pas !"});
+                    res.json({message:"Plus loin tu n'iras pas !"});
                 }
             }
         })
@@ -71,6 +77,12 @@ exports.verify_token_admin = (req,res,next) => {
     }
 }
 
+/**
+ * Fonction de verification du token, n'autorisant que les Team Leaders
+ * @param {*} req Requête fourni à l'API
+ * @param {*} res Response envoyer par la fonction
+ * @param {*} next Fonction next() pour passer à la suite 
+ */
 exports.verify_token_tl = (req,res,next) => {
     let token = req.headers['authorization'];
     let role = "tl";
@@ -86,7 +98,7 @@ exports.verify_token_tl = (req,res,next) => {
                     console.log(jwt.decode(token)); 
                 } else {
                     res.status(403)
-                    res.json({message:"PLus loin tu n'iras pas !"});
+                    res.json({message:"Plus loin tu n'iras pas !"});
                 }
             }
         })
@@ -96,6 +108,12 @@ exports.verify_token_tl = (req,res,next) => {
     }
 }
 
+/**
+ * Fonction de verification du token, n'autorisant que les Team Members
+ * @param {*} req Requête fourni à l'API
+ * @param {*} res Response envoyer par la fonction
+ * @param {*} next Fonction next() pour passer à la suite 
+ */
 exports.verify_token_tm = (req,res,next) => {
     let token = req.headers['authorization'];
     let role = "tm";
@@ -111,7 +129,7 @@ exports.verify_token_tm = (req,res,next) => {
                     console.log(jwt.decode(token)); 
                 } else {
                     res.status(403)
-                    res.json({message:"PLus loin tu n'iras pas !"});
+                    res.json({message:"Plus loin tu n'iras pas !"});
                 }
             }
         })
@@ -121,6 +139,12 @@ exports.verify_token_tm = (req,res,next) => {
     }
 }
 
+/**
+ * Fonction de verification du token, n'autorisant que les Users
+ * @param {*} req Requête fourni à l'API
+ * @param {*} res Response envoyer par la fonction
+ * @param {*} next Fonction next() pour passer à la suite 
+ */
 exports.verify_token_user = (req,res,next) => {
     let token = req.headers['authorization'];
     let role = "user";
@@ -136,7 +160,7 @@ exports.verify_token_user = (req,res,next) => {
                     console.log(jwt.decode(token)); 
                 } else {
                     res.status(403)
-                    res.json({message:"PLus loin tu n'iras pas !"});
+                    res.json({message:"Plus loin tu n'iras pas !"});
                 }
             }
         })
