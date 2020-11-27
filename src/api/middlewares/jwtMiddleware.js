@@ -20,7 +20,12 @@ exports.verify_token = (req,res,next) => {
     }
 }
 
-//Exemple de fonction pour gérer un role fourni dans le header de la requête
+/**
+ * Exemple de fonction pour gérer un role fourni dans le header de la requête
+ * @param {*} req Requête fourni à l'API
+ * @param {*} res Response envoyer par la fonction
+ * @param {*} next Fonction next() pour passer à la suite 
+ */
 exports.verify_token_and_roles = (req,res,next) => {
     let token = req.headers['authorization'];
     let role = req.headers['role'];
