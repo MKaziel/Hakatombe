@@ -101,7 +101,10 @@ exports.login_an_user = (request, response) => {
                                             });
                                         } else {
                                             response.json({
-                                                myToken: token,
+                                                userMail: user.email,
+                                                userFname: user.fname,
+                                                userLname: user.Lname,
+                                                userToken: token
                                             });
                                         }
                                     }

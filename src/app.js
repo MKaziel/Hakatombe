@@ -12,6 +12,7 @@ var corsOptions = {
         if (whitelist.indexOf(origin) !== -1) {
             callback(null, true);
         } else {
+            console.log(origin);
             callback(new Error("Not allowed by CORS"));
         }
     },
@@ -23,12 +24,8 @@ mongoose.connect("mongodb://mongo/apinodejs");
 const bodyParser = require("body-parser");
 server.use(bodyParser.urlencoded());
 server.use(bodyParser.json());
-server.use(cors(corsOptions));
-
-//Configuration du port d'écoute du serveur
-server.listen(80, function () {
-    console.log('CORS-enabled web server listening on port 80')
-})
+// server.use(cors(corsOptions)); /** Ligne à commenter pour utiliser Postman */
+server.use(cors()); /** Ligne à décommenter pour utiliser Postman */
 
 //Route pour gérer les évènements
 const eventRoute = require("./api/routes/eventRoute");
@@ -52,4 +49,9 @@ teamRoute(server);
 const userRoute = require("./api/routes/userRoute");
 userRoute(server);
 
+//Configuration par défaut de l'écoute du serveur
 server.listen(port, hostname);
+//Configuration du port d'écoute du serveur
+server.listen(process.env.FRONT_PORT, function () {
+    console.log('CORS-enabled web server listening on port 80')
+})
