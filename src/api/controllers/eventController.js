@@ -8,6 +8,7 @@ const Event = require('../models/eventModel')
  * Listez tous les évènements 
  */
 exports.list_all_event = (request,response) => {
+    
     Event.find({}, (error, events) => {
         if (error) {
             response.status(500);

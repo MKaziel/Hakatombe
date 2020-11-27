@@ -6,15 +6,15 @@ module.exports = (server) => {
         // all
         .get(projectController.list_all_project)
         //users
-        .post(projectController.create_a_project);
+        .post(jwtMiddleware.verify_token_and_admin, projectController.create_a_project);
 
     server.route('/project/:project_id') // req.params.school_id
         //all
         .get(projectController.get_a_project)
         //owner 
-        .put(projectController.update_a_project)
+        .put(jwtMiddleware.verify_token_and_admin, projectController.update_a_project)
         //owner 
-        .delete(projectController.delete_a_project);
+        .delete(jwtMiddleware.verify_token_and_admin, projectController.delete_a_project);
 
     server.route('/teams/:team_id/project')
         //all

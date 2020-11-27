@@ -6,16 +6,16 @@ module.exports = (server) => {
         //all
         .get(teamController.get_all_team)
         //team leader
-        .post(teamController.create_a_team);
+        .post(jwtMiddleware.verify_token_and_admin, teamController.create_a_team);
 
         
         server.route('/team/:team_id') // req.params.team_id
         //all    
         .get(teamController.get_a_team)
         //team leader
-        .put(teamController.update_a_team)
+        .put(jwtMiddleware.verify_token_and_admin, teamController.update_a_team)
         //admin
-        .delete(teamController.delete_a_team);
+        .delete(jwtMiddleware.verify_token_and_admin, teamController.delete_a_team);
         
         server.route('/user/:user_id/team')
             //all

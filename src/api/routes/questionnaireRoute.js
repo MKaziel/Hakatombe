@@ -7,13 +7,13 @@ module.exports = (server) => {
         //admin
         .get(questionnaireController.list_all_questionnaire)
         //admin
-        .post(questionnaireController.create_a_questionnaire);
+        .post(jwtMiddleware.verify_token_and_admin, questionnaireController.create_a_questionnaire);
 
     server.route('/questionnaire/:questionnaire_id') // req.params.questionnaire_id
         //user
         .get(questionnaireController.get_a_questionnaire)
         //admin
-        .put(questionnaireController.update_a_questionnaire)
+        .put(jwtMiddleware.verify_token_and_admin, questionnaireController.update_a_questionnaire)
         //admin
-        .delete(questionnaireController.delete_a_questionnaire);
+        .delete(jwtMiddleware.verify_token_and_admin, questionnaireController.delete_a_questionnaire);
 }

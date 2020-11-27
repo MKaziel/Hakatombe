@@ -9,7 +9,7 @@ module.exports = (server) => {
 
     server.route('/users/register')
         //only guest
-        .post(userController.create_an_user)
+        .post( userController.create_an_user)
     
     server.route('/users/login')
         //only guest
