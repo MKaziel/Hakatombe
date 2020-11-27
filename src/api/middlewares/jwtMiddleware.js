@@ -47,7 +47,7 @@ exports.verify_token_and_roles = (req,res,next) => {
 }
 
 /**
- * Fonction de verification du token, n'autorisant que les administrateurs
+ * Fonction de verification du token, n'authorisant que les administrateurs
  * @param {*} req Requête fourni à l'API
  * @param {*} res Response envoyer par la fonction
  * @param {*} next Fonction next() pour passer à la suite 
@@ -78,7 +78,7 @@ exports.verify_token_admin = (req,res,next) => {
 }
 
 /**
- * Fonction de verification du token, n'autorisant que les Team Leaders
+ * Fonction de verification du token, n'authorisant que les Team Leaders
  * @param {*} req Requête fourni à l'API
  * @param {*} res Response envoyer par la fonction
  * @param {*} next Fonction next() pour passer à la suite 
@@ -109,7 +109,7 @@ exports.verify_token_tl = (req,res,next) => {
 }
 
 /**
- * Fonction de verification du token, n'autorisant que les Team Members
+ * Fonction de verification du token, n'authorisant que les Team Members
  * @param {*} req Requête fourni à l'API
  * @param {*} res Response envoyer par la fonction
  * @param {*} next Fonction next() pour passer à la suite 
@@ -140,7 +140,7 @@ exports.verify_token_tm = (req,res,next) => {
 }
 
 /**
- * Fonction de verification du token, n'autorisant que les Users
+ * Fonction de verification du token, n'authorisant que les Users
  * @param {*} req Requête fourni à l'API
  * @param {*} res Response envoyer par la fonction
  * @param {*} next Fonction next() pour passer à la suite 
