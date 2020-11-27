@@ -15,7 +15,7 @@ module.exports = (server) => {
         //team leader
         .put(jwtMiddleware.verify_token_tl, teamController.update_a_team)
         //admin
-        .delete(jwtMiddleware.verify_token_and_admin, teamController.delete_a_team);
+        .delete(jwtMiddleware.verify_token_admin, teamController.delete_a_team);
         
         server.route('/user/:user_id/team')
             //all
