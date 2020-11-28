@@ -8,7 +8,7 @@ module.exports = (server) => {
      */
     server.route('/event')
         .get(eventController.list_all_event)
-        .post(jwtMiddlware.verify_token_admin, eventController.create_an_event);
+        .post(jwtMiddleware.verify_token_admin, eventController.create_an_event);
 
     /**
      * @param :event_id : ID de l'evènement fourni dans l'URI
