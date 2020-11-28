@@ -20,3 +20,21 @@ module.exports = (server) => {
         .get(userController.get_users_team)
 
 }
+
+var express = require('express');
+var router = express.Router();
+
+// GET School
+router.get('/',function(req, res, next){
+
+    let dataArray = [
+        {name: "Paris"},
+        {name: "Saint-Quentin en Yvelines"},
+        {name: "Marne-la-Vallée"}
+    ];
+    res.json({
+        data: dataArray
+    })
+});
+
+module.export = router;
