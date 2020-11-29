@@ -1,0 +1,1400 @@
+{
+	"info": {
+		"_postman_id": "02817770-471f-4f0c-be11-aba902d4d6c5",
+		"name": "Hakathon",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "team",
+			"item": [
+				{
+					"name": "Get all teams",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/teams",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"teams"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get a team",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/team/{{team_id}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"team",
+								"{{team_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create team",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "",
+								"description": "enter the connection token",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "",
+									"description": "Team's name",
+									"type": "text"
+								},
+								{
+									"key": "leader",
+									"value": "",
+									"description": "Id of the user who lead the team",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3000/teams",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"teams"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a team",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "",
+								"description": "enter the connection token",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "",
+									"description": "Team's name",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "leader",
+									"value": "",
+									"description": "Id of the user who lead the team",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3000/team/{{user_id}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"team",
+								"{{user_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a team",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "",
+								"description": "enter the connection token",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/team/{{team_id}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"team",
+								"{{team_id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "Get all users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all users for one team",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "",
+								"description": "enter the connection token",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/teams/{{team_id}}/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"teams",
+								"{{team_id}}",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "fname",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "lname",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "school_id",
+									"value": "",
+									"description": "Set the school's id of the user",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "team_id",
+									"value": "",
+									"description": "Set the team's id of the user",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3000/users/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login an user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3000/users/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update an user",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "",
+								"description": "enter the connection token",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "password",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "lname",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "fname",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "school_id",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "team_id",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3000/users/{{user_id}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"{{user_id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "school",
+			"item": [
+				{
+					"name": "Get all school",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/school",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"school"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get one school",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/school/{{school_id}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"school",
+								"{{school_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create a school",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "",
+								"description": "enter connection token",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "location",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3000/school",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"school"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a school",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "",
+								"description": "enter connection token",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "location",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3000/school/{{school_id}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"school",
+								"{{school_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a school",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "",
+								"description": "enter connection token",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/school/{{school_id}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"school",
+								"{{school_id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "questionnaire",
+			"item": [
+				{
+					"name": "Get all questionnaire",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/questionnaire",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"questionnaire"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get a questionnaire",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "",
+								"description": "enter connection token",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/questionnaire/{{questionnaire_id}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"questionnaire",
+								"{{questionnaire_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create a Questionnaire",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "",
+								"description": "enter connection token",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "question_1",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "question_2",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "question_3",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "question_4",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "question_5",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3000/questionnaire",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"questionnaire"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a questionnaire",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"description": "enter connection token",
+								"key": "authorization",
+								"type": "text",
+								"value": ""
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "question_1",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "question_2",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "question_3",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "question_4",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "question_5",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3000/questionnaire/{{questionnaire_id}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"questionnaire",
+								"{{questionnaire_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a questionnaire",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "",
+								"description": "enter connection token",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/questionnaire/5fbfb15e75c7a000953f878a",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"questionnaire",
+								"5fbfb15e75c7a000953f878a"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "project",
+			"item": [
+				{
+					"name": "Get all project",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/project",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"project"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get a project",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/project/{{project_id}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"project",
+								"{{project_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all project's team",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/teams/{{team_id}}/project",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"teams",
+								"{{team_id}}",
+								"project"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create a project",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "",
+								"description": "enter connection token",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "answer_1",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "answer_2",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "answer_3",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "answer_4",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "answer_5",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "questionnaire_id",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "team_id",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3000/project",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"project"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a project",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"description": "enter connection token",
+								"key": "authorization",
+								"type": "text",
+								"value": ""
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "answer_1",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "answer_2",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "answer_3",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "answer_4",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "answer_5",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "questionnaire_id",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "team_id",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3000/project/{{project_id}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"project",
+								"{{project_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete a project",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "",
+								"description": "enter connection token",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/project/{{project_id}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"project",
+								"{{project_id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "inscription",
+			"item": [
+				{
+					"name": "List all inscription",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "",
+								"description": "enter connection token",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/inscription",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"inscription"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all inscritptions of a team",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "",
+								"description": "enter connection token",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/teams/{{team_id}}/inscription",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"teams",
+								"{{team_id}}",
+								"inscription"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all inscritptions of a project",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"description": "enter connection token",
+								"key": "authorization",
+								"type": "text",
+								"value": ""
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/teams/{{project_id}}/inscription",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"teams",
+								"{{project_id}}",
+								"inscription"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get an inscription By Id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "",
+								"description": "enter connection token",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/inscription/{{inscription_id}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"inscription",
+								"{{inscription_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create an inscription",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "",
+								"description": "Enter connection token",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "project_id",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "team_id",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "event_id",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3000/inscription",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"inscription"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update an inscription",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "",
+								"description": "enter connection token",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "project_id",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "team_id",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "event_id",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3000/inscription/{{inscription_id}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"inscription",
+								"{{inscription_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete an inscription",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "",
+								"description": "enter connection token",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/inscription/{{inscription_id}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"inscription",
+								"{{inscription_id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "event",
+			"item": [
+				{
+					"name": "List all event",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/event",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"event"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get an Event By Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/event/{{event_id}}",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"event",
+								"{{event_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create an event",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "",
+								"description": "enter connection token",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "location",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3000/event",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"event"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update an event",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "",
+								"description": "enter connection token",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "location",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "description",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3000/event/{{event_id}}",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"event",
+								"{{event_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete an event",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "",
+								"description": "enter connection token",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:3000/event/{{event_id}}",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"event",
+								"{{event_id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
