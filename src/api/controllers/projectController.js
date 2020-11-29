@@ -13,7 +13,7 @@ exports.list_all_project = (request,response) => {
             response.status(500);
             console.log(error);
             response.json({
-                message: "Erreur serveur."
+                message: "Erreur serveur : Project / Get all"
             });
         } else {
             response.status(200);
@@ -35,7 +35,7 @@ exports.create_a_project = (request,response) => {
             response.status(500);
             console.log(error);
             response.json({
-                message: "Erreur serveur."
+                message: "Erreur serveur : Project / Create"
             });
         } else {
             response.status(201);
@@ -56,7 +56,7 @@ exports.get_a_project = (request,response) => {
             response.status(500);
             console.log(error);
             response.json({
-                message: "Erreur serveur."
+                message: "Erreur serveur : Project / Get one"
             });
         } else {
             response.status(200);
@@ -77,7 +77,7 @@ exports.update_a_project = (request,response) => {
             response.status(500);
             console.log(error);
             response.json({
-                message: "Erreur serveur."
+                message: "Erreur serveur : Project / Update"
             });
         } else {
             response.status(200);
@@ -98,7 +98,7 @@ exports.delete_a_project = (request,response) => {
             response.status(500);
             console.log(error);
             response.json({
-                message: "Erreur serveur."
+                message: "Erreur serveur : Project / Delete"
             });
         } else {
             response.status(200);
@@ -119,7 +119,7 @@ exports.get_all_projects_of_team = (request,response) => {
             response.status(500);
             console.log(error);
             response.json({
-                message: "Erreur serveur."
+                message: "Erreur serveur : Project / Get all of Team"
             });
         } else {
             response.status(200);

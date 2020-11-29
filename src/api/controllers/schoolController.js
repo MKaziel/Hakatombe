@@ -13,7 +13,7 @@ exports.list_all_school = (request,response) => {
             response.status(500);
             console.log(error);
             response.json({
-                message: "Erreur serveur."
+                message: "Erreur serveur : School / Get all"
             });
         } else {
             response.status(200);
@@ -35,7 +35,7 @@ exports.create_a_school = (request,response) => {
             response.status(500);
             console.log(error);
             response.json({
-                message: "Erreur serveur."
+                message: "Erreur serveur : School / Create"
             });
         } else {
             response.status(201);
@@ -56,7 +56,7 @@ exports.get_a_school = (request,response) => {
             response.status(500);
             console.log(error);
             response.json({
-                message: "Erreur serveur."
+                message: "Erreur serveur : School / Get one"
             });
         } else {
             response.status(200);
@@ -77,7 +77,7 @@ exports.update_a_school = (request,response) => {
             response.status(500);
             console.log(error);
             response.json({
-                message: "Erreur serveur."
+                message: "Erreur serveur : School / Update"
             });
         } else {
             response.status(200);
@@ -98,7 +98,7 @@ exports.delete_a_school = (request,response) => {
             response.status(500);
             console.log(error);
             response.json({
-                message: "Erreur serveur."
+                message: "Erreur serveur : School / Delete"
             });
         } else {
             response.status(200);

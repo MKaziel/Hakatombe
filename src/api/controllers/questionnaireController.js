@@ -13,7 +13,7 @@ exports.list_all_questionnaire = (request,response) => {
             response.status(500);
             console.log(error);
             response.json({
-                message: "Erreur serveur."
+                message: "Erreur serveur : Questionnaire / "
             });
         } else {
             response.status(200);
@@ -35,7 +35,7 @@ exports.create_a_questionnaire = (request,response) => {
             response.status(500);
             console.log(error);
             response.json({
-                message: "Erreur serveur."
+                message: "Erreur serveur : Questionnaire / Create"
             });
         } else {
             response.status(201);
@@ -56,7 +56,7 @@ exports.get_a_questionnaire = (request,response) => {
             response.status(500);
             console.log(error);
             response.json({
-                message: "Erreur serveur."
+                message: "Erreur serveur : Questionnaire / Get one"
             });
         } else {
             response.status(200);
@@ -77,7 +77,7 @@ exports.update_a_questionnaire = (request,response) => {
             response.status(500);
             console.log(error);
             response.json({
-                message: "Erreur serveur."
+                message: "Erreur serveur : Questionnaire / Update"
             });
         } else {
             response.status(200);
@@ -98,7 +98,7 @@ exports.delete_a_questionnaire = (request,response) => {
             response.status(500);
             console.log(error);
             response.json({
-                message: "Erreur serveur."
+                message: "Erreur serveur : Questionnaire / Delete"
             });
         } else {
             response.status(200);

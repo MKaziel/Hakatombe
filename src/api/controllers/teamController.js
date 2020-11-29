@@ -14,7 +14,7 @@ exports.get_all_team = (request,response) => {
             response.status(500);
             console.log(error);
             response.json({
-                message: "Erreur serveur."
+                message: "Erreur serveur : Team / Get all"
             });
         } else {
             response.status(200);
@@ -36,7 +36,7 @@ exports.create_a_team = (request,response) => {
             response.status(500);
             console.log(error);
             response.json({
-                message: "Erreur serveur."
+                message: "Erreur serveur : Team / Create"
             });
         } else {
             response.status(201);
@@ -57,7 +57,7 @@ exports.get_a_team = (request,response) => {
             response.status(500);
             console.log(error);
             response.json({
-                message: "Erreur serveur."
+                message: "Erreur serveur : Team / Get one"
             });
         } else {
             response.status(200);
@@ -80,7 +80,7 @@ exports.update_a_team = (request,response) => {
             response.status(500);
             console.log(error);
             response.json({
-                message: "Erreur serveur."
+                message: "Erreur serveur : Team / Update"
             });
         } else {
             response.status(200);
@@ -101,7 +101,7 @@ exports.delete_a_team = (request,response) => {
             response.status(500);
             console.log(error);
             response.json({
-                message: "Erreur serveur."
+                message: "Erreur serveur : Team / Delete"
             });
         } else {
             response.status(200);
@@ -121,7 +121,7 @@ exports.list_team_of_user = (request,response) => {
                     response.status(500);
                     console.log(err);
                     response.json({
-                        message: "Erreur serveur."
+                        message: "Erreur serveur : Team / Get one of user"
                     });
                 } else {
                     response.status(200);
@@ -139,7 +139,7 @@ exports.list_team_of_user = (request,response) => {
         } else {
             response.status(500);
             response.json({
-                message: "Server error"
+                message: "Erreur Serveur : Team / Get one of user"
             });
         }
     });

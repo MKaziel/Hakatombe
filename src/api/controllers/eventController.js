@@ -14,7 +14,7 @@ exports.list_all_event = (request,response) => {
             response.status(500);
             console.log(error);
             response.json({
-                message: "Erreur serveur."
+                message: "Erreur serveur : Event / Get all."
             })
         } else {
             response.status(200);
@@ -36,7 +36,7 @@ exports.create_an_event = (request,response) => {
             response.status(500);
             console.log(error);
             response.json({
-                message: "Erreur serveur."
+                message: "Erreur serveur : Event / Create."
             })
         } else {
             response.status(201);
@@ -57,7 +57,7 @@ exports.get_an_event = (request,response) => {
             response.status(500);
             console.log(error);
             response.json({
-                message: "Erreur serveur."
+                message: "Erreur serveur : Event / Get One."
             })
         } else {
             response.status(200);
@@ -79,7 +79,7 @@ exports.update_an_event = (request,response) => {
             response.status(500);
             console.log(error);
             response.json({
-                message: "Erreur serveur."
+                message: "Erreur serveur : Event / Update."
             })
         } else {
             response.status(200);
@@ -100,7 +100,7 @@ exports.delete_an_event = (request,response) => {
             response.status(500);
             console.log(error);
             response.json({
-                message: "Erreur serveur."
+                message: "Erreur serveur : Event / Delete."
             })
         } else {
             response.status(200);

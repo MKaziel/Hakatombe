@@ -15,7 +15,7 @@ exports.list_all_inscription = (request, response) => {
             response.status(500);
             console.log(error);
             response.json({
-                message: "Erreur serveur."
+                message: "Erreur serveur : Inscription / Get all ."
             })
         } else {
             response.status(200);
@@ -37,7 +37,7 @@ exports.register_inscription = (request, response) => {
             response.status(500);
             console.log(error);
             response.json({
-                message: "Erreur serveur."
+                message: "Erreur serveur : Inscription / Register"
             })
         } else {
             response.status(201);
@@ -58,7 +58,7 @@ exports.get_an_inscription = (request, response) => {
             response.status(500);
             console.log(error);
             response.json({
-                message: "Erreur serveur."
+                message: "Erreur serveur : Inscription / Get one"
             })
         } else {
             response.status(200);
@@ -81,7 +81,7 @@ exports.update_an_inscription = (request, response) => {
             response.status(500);
             console.log(error);
             response.json({
-                message: "Erreur serveur."
+                message: "Erreur serveur : Inscription / Update"
             })
         } else {
             response.status(200);
@@ -102,7 +102,7 @@ exports.delete_an_inscription = (request, response) => {
             response.status(500);
             console.log(error);
             response.json({
-                message: "Erreur serveur."
+                message: "Erreur serveur : Inscription / Delete"
             })
         } else {
             response.status(200);
@@ -125,7 +125,7 @@ exports.get_all_inscriptions_of_team = (request, response) => {
             response.status(500)
             console.log(error)
             response.json({
-                message: "Erreur Serveur"
+                message: "Erreur Serveur : Inscription / Get all of Team"
             })
         } else {
             Inscription.find({
@@ -135,7 +135,7 @@ exports.get_all_inscriptions_of_team = (request, response) => {
                     response.status(500);
                     console.log(error);
                     response.json({
-                        message: "Erreur serveur."
+                        message: "Erreur serveur : Inscription / Get all of Team"
                     })
                 } else {
                     response.status(200);
@@ -160,7 +160,7 @@ exports.get_an_inscription_of_project = (request, response) => {
             response.status(500)
             console.log(error)
             response.json({
-                message: "Erreur Serveur"
+                message: "Erreur Serveur : Inscription / Get one of Project"
             })
         } else {
             Inscription.find({
@@ -170,7 +170,7 @@ exports.get_an_inscription_of_project = (request, response) => {
                     response.status(500);
                     console.log(error);
                     response.json({
-                        message: "Erreur serveur."
+                        message: "Erreur serveur : Inscription / Get one of Project"
                     })
                 } else {
                     response.status(200);

@@ -15,7 +15,7 @@ exports.list_all_users = (request, response) => {
             response.status(500);
             console.log(error);
             response.json({
-                message: "Erreur serveur.",
+                message: "Erreur serveur : User / Get all",
             });
         } else {
             response.status(200);
@@ -46,7 +46,7 @@ exports.create_an_user = (request, response) => {
                         response.status(500);
                         console.log(error);
                         response.json({
-                            message: "Erreur serveur.",
+                            message: "Erreur serveur : User / Create",
                         });
                     } else {
                         response.status(201);
@@ -59,7 +59,7 @@ exports.create_an_user = (request, response) => {
                 response.status(500);
                 console.log(err);
                 response.json({
-                    message: "Erreur serveur.",
+                    message: "Erreur serveur : User / Create User",
                 });
             }
         });
@@ -92,7 +92,7 @@ exports.login_an_user = (request, response) => {
                     response.status(500);
                     console.log(error_1);
                     response.json({
-                        message: "Erreur serveur.",
+                        message: "Erreur serveur : User / Login",
                     });
                 } else if (user !== null) {
                     Bcrypt.compare(
@@ -196,7 +196,7 @@ exports.update_user = (request, response) => {
             response.status(500);
             console.log(error);
             response.json({
-                message: "Erreur serveur.",
+                message: "Erreur serveur : User / Update",
             });
         } else {
             response.status(200);
@@ -217,7 +217,7 @@ exports.get_users_team = (request, response) => {
             response.status(500);
             console.log(error);
             response.json({
-                message: "Erreur serveur.",
+                message: "Erreur serveur : User / Get all of team",
             });
         } else {
             response.status(200);
