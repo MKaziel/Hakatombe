@@ -1,6 +1,9 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
+/**
+ * Modèle du questionnaire
+ */
 let questionnaireSchema = new Schema({
     name: {
         type: String,

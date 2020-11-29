@@ -1,89 +1,227 @@
-const middleware = require('../middlewares/jwtMiddleware');
-const User = require('../models/userModels');
+const jwt = require("jsonwebtoken");
+const User = require("../models/userModels");
+const Bcrypt = require("bcrypt");
+const SaltRounds = 10;
 
-exports.list_all_users = (request,response) => {
+/**
+ * 
+ * @param {*} request 
+ * @param {*} response
+ * Lister tous les utilisateurs 
+ */
+exports.list_all_users = (request, response) => {
     User.find({}, (error, users) => {
         if (error) {
             response.status(500);
             console.log(error);
             response.json({
-                message: "Erreur serveur."
+                message: "Erreur serveur : User / Get all",
             });
         } else {
             response.status(200);
             response.json(users);
-        }
-    })
-}
-
-exports.create_an_user = (request,response) => {
-    let new_user = new User(request.body);
-    new_user.save((error, user) => {
-        if (error) {
-            response.status(500);
-            console.log(error);
-            response.json({
-                message: "Erreur serveur."
-            });
-        } else {
-            response.status(201);
-            response.json(user);
         }
     });
-}
+};
 
-exports.login_an_user = (request,response) => {
-    let rgx = new RegExp('^[^\W][a-zA-Z0-9_]+(\.[a-zA-Z0-9_]+)*\@[a-zA-Z0-9_]+(\.[a-zA-Z0-9_]+)*\.[a-zA-Z]{2,4}$');
-    // if(rgx.test(req.body.email)){
-    //     Bcrypt.hash(req.body.password,SaltRounds,(err,hash)=>{
-    //         if(!err){
-    //             let new_user = new User({
-    //                 ...req.body,
-    //                 password : hash
-    //             });
-    //             new_user.save((error, user) => {
-    //                 if (error) {
-    //                     res.status(500);
-    //                     console.log(error);
-    //                     res.json({
-    //                         message: "Erreur serveur."
-    //                     })
-    //                 } else {
-    //                     res.status(201);
-    //                     res.json({
-    //                         message: `Utilisateur crée : ${user.email}`
-    //                     })
-    //                 }
-    //             })
-    //         } else {
-    //             res.status(500);
-    //             console.log(error);
-    //             res.json({
-    //                 message: "Erreur serveur."
-    //             })
-    //         }
-    //     })
-    // } else {
-    //     res.status(400);
-    //     console.log(err);
-    //     res.json({
-    //         message: "Invalid Credential given !"
-    //     });
-    // }
-    return null;
-}
+/**
+ * 
+ * @param {*} request 
+ * @param {*} response
+ * S'Inscrire / Créer un utilisateur 
+ */
+exports.create_an_user = (request, response) => {
+    let rgx = new RegExp(
+        "^[^W][a-zA-Z0-9_]+(.[a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+(.[a-zA-Z0-9_]+)*.[a-zA-Z]{2,4}$"
+    );
+    if (rgx.test(request.body.email)) {
+        Bcrypt.hash(request.body.password, SaltRounds, (err, hash) => {
+            if (!err) {
+                let new_user = new User({
+                    ...request.body,
+                    password: hash,
+                });
+                new_user.save((error, user) => {
+                    if (error) {
+                        response.status(500);
+                        console.log(error);
+                        response.json({
+                            message: "Erreur serveur : User / Create",
+                        });
+                    } else {
+                        response.status(201);
+                        response.json({
+                            message: `Utilisateur crée : ${user.email}`,
+                        });
+                    }
+                });
+            } else {
+                response.status(500);
+                console.log(err);
+                response.json({
+                    message: "Erreur serveur : User / Create User",
+                });
+            }
+        });
+    } else {
+        response.status(400);
+        console.log(err);
+        response.json({
+            message: "Invalid Credential given !",
+        });
+    }
+};
 
-exports.get_users_team = (request,response) => {
-    User.find({team_id: request.params.team_id}, (error,users) => {
+/**
+ * 
+ * @param {*} request 
+ * @param {*} response
+ * Se Connecter / Connecter un utilisateur 
+ */
+exports.login_an_user = (request, response) => {
+    let rgx = new RegExp(
+        "^[^\\W][a-zA-Z0-9_]+(\\.[a-zA-Z0-9_]+)*\\@[a-zA-Z0-9_]+(.[a-zA-Z0-9_]+)*\\.[a-zA-Z]{2,4}$"
+    );
+    if (rgx.test(request.body.email)) {
+        User.findOne(
+            {
+                email: request.body.email,
+            },
+            (error_1, user) => {
+                if (error_1) {
+                    response.status(500);
+                    console.log(error_1);
+                    response.json({
+                        message: "Erreur serveur : User / Login",
+                    });
+                } else if (user !== null) {
+                    Bcrypt.compare(
+                        request.body.password,
+                        user.password,
+                        (error_2, rslt) => {
+                            if (!error_2 && rslt) {
+                                if(user.email === "admin@mail.com"){
+                                    jwt.sign(
+                                        {
+                                            email: user.email,
+                                            role: "admin",
+                                        },
+                                        process.env.JWT_SECRET,
+                                        {
+                                            expiresIn: "30 days",
+                                        },
+                                        (error_3, token) => {
+                                            if (error_3) {
+                                                response.status(400);
+                                                console.log(error_3);
+                                                response.json({
+                                                    message:
+                                                        "Invalid Credential given !",
+                                                });
+                                            } else {
+                                                response.json({
+                                                    userMail: user.email,
+                                                    userFname: user.fname,
+                                                    userLname: user.Lname,
+                                                    userToken: token
+                                                });
+                                            }
+                                        }
+                                    );
+                                } else {
+                                    jwt.sign(
+                                        {
+                                            email: user.email,
+                                            role: "user",
+                                        },
+                                        process.env.JWT_SECRET,
+                                        {
+                                            expiresIn: "30 days",
+                                        },
+                                        (error_3, token) => {
+                                            if (error_3) {
+                                                response.status(400);
+                                                console.log(error_3);
+                                                response.json({
+                                                    message:
+                                                        "Invalid Credential given !",
+                                                });
+                                            } else {
+                                                response.json({
+                                                    userMail: user.email,
+                                                    userFname: user.fname,
+                                                    userLname: user.Lname,
+                                                    userToken: token
+                                                });
+                                            }
+                                        }
+                                    );
+                                }
+                            } else {
+                                response.status(400);
+                                console.log(error_2);
+                                response.json({
+                                    message: "Invalid Credential given !",
+                                });
+                            }
+                        }
+                    );
+                } else {
+                    response.status(400);
+                    console.log(error_1);
+                    response.json({
+                        message: "User not found !",
+                    });
+                }
+            }
+        );
+    } else {
+        res.status(400);
+        console.log(request.body);
+        res.json({
+            message: "Invalid Credential given !",
+        });
+    }
+};
+
+/**
+ * 
+ * @param {*} request 
+ * @param {*} response 
+ * Mettre à jour un utilisateur
+ */
+exports.update_user = (request, response) => {
+    User.findByIdAndUpdate(request.params.user_id, request.body ,(error, users) => {
         if (error) {
             response.status(500);
             console.log(error);
             response.json({
-                message: "Erreur serveur."
+                message: "Erreur serveur : User / Update",
+            });
+        } else {
+            response.status(200);
+            response.json("Modifications effectuées");
+        }
+    });
+};
+
+/**
+ * 
+ * @param {*} request 
+ * @param {*} response
+ * Récupérer tous les membres d'une team 
+ */
+exports.get_users_team = (request, response) => {
+    User.find({ team_id: request.params.team_id }, (error, users) => {
+        if (error) {
+            response.status(500);
+            console.log(error);
+            response.json({
+                message: "Erreur serveur : User / Get all of team",
             });
         } else {
             response.status(200);
             response.json(users);
         }
-    })
-}
+    });
+};

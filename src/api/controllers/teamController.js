@@ -2,13 +2,19 @@ const middleware = require('../middlewares/jwtMiddleware');
 const Team = require('../models/teamModel');
 const User = require('../models/userModels');
 
+/**
+ * 
+ * @param {*} request 
+ * @param {*} response
+ * Récupérer toutes les teams 
+ */
 exports.get_all_team = (request,response) => {
     Team.find({}, (error, teams) => {
         if (error) {
             response.status(500);
             console.log(error);
             response.json({
-                message: "Erreur serveur."
+                message: "Erreur serveur : Team / Get all"
             });
         } else {
             response.status(200);
@@ -17,6 +23,12 @@ exports.get_all_team = (request,response) => {
     });
 }
 
+/**
+ * 
+ * @param {*} request 
+ * @param {*} response
+ * Créer une team 
+ */
 exports.create_a_team = (request,response) => {
     let new_team = new Team(request.body);
     new_team.save((error, team) => {
@@ -24,7 +36,7 @@ exports.create_a_team = (request,response) => {
             response.status(500);
             console.log(error);
             response.json({
-                message: "Erreur serveur."
+                message: "Erreur serveur : Team / Create"
             });
         } else {
             response.status(201);
@@ -33,13 +45,19 @@ exports.create_a_team = (request,response) => {
     });
 }
 
+/**
+ * 
+ * @param {*} request 
+ * @param {*} response
+ * Récupéré une team avec son ID 
+ */
 exports.get_a_team = (request,response) => {
     Team.findById(request.params.team_id, (error, team) => {
         if (error) {
             response.status(500);
             console.log(error);
             response.json({
-                message: "Erreur serveur."
+                message: "Erreur serveur : Team / Get one"
             });
         } else {
             response.status(200);
@@ -48,6 +66,12 @@ exports.get_a_team = (request,response) => {
     });
 }
 
+/**
+ * 
+ * @param {*} request 
+ * @param {*} response
+ * Mettre à jour une team 
+ */
 exports.update_a_team = (request,response) => {
     Team.findByIdAndUpdate(request.params.team_id, request.body, {
         new: true
@@ -56,7 +80,7 @@ exports.update_a_team = (request,response) => {
             response.status(500);
             console.log(error);
             response.json({
-                message: "Erreur serveur."
+                message: "Erreur serveur : Team / Update"
             });
         } else {
             response.status(200);
@@ -65,13 +89,19 @@ exports.update_a_team = (request,response) => {
     });
 }
 
+/**
+ * 
+ * @param {*} request 
+ * @param {*} response
+ * Supprimer une team 
+ */
 exports.delete_a_team = (request,response) => {
     Team.findByIdAndRemove(request.params.param_id, (error, team) => {
         if (error) {
             response.status(500);
             console.log(error);
             response.json({
-                message: "Erreur serveur."
+                message: "Erreur serveur : Team / Delete"
             });
         } else {
             response.status(200);
@@ -91,7 +121,7 @@ exports.list_team_of_user = (request,response) => {
                     response.status(500);
                     console.log(err);
                     response.json({
-                        message: "Erreur serveur."
+                        message: "Erreur serveur : Team / Get one of user"
                     });
                 } else {
                     response.status(200);
@@ -109,7 +139,7 @@ exports.list_team_of_user = (request,response) => {
         } else {
             response.status(500);
             response.json({
-                message: "Server error"
+                message: "Erreur Serveur : Team / Get one of user"
             });
         }
     });
