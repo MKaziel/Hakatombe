@@ -166,6 +166,21 @@ exports.login_an_user = (request, response) => {
     }
 };
 
+exports.update_user = (request, response) => {
+    User.findByIdAndUpdate(request.params.user_id, request.body ,(error, users) => {
+        if (error) {
+            response.status(500);
+            console.log(error);
+            response.json({
+                message: "Erreur serveur.",
+            });
+        } else {
+            response.status(200);
+            response.json("Modifications effectuées");
+        }
+    });
+};
+
 exports.get_users_team = (request, response) => {
     User.find({ team_id: request.params.team_id }, (error, users) => {
         if (error) {

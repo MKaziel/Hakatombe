@@ -5,7 +5,10 @@ let teamSchema = new Schema({
     name: {
         type: String,
         required: "Le nom est requis"
-    }    
+    },
+    leader: {
+        type: String
+    }  
 });
 
 module.exports = mongoose.model('Team',teamSchema );

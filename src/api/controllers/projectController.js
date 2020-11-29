@@ -48,7 +48,7 @@ exports.get_a_project = (request,response) => {
 }
 
 exports.update_a_project = (request,response) => {
-    Project.findByIdAndUpdate(request.params.project_id, (error, project) => {
+    Project.findByIdAndUpdate(request.params.project_id, request.body, (error, project) => {
         if (error) {
             response.status(500);
             console.log(error);
