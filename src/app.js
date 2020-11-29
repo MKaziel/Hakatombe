@@ -53,5 +53,5 @@ userRoute(server);
 server.listen(port, hostname);
 //Configuration du port d'écoute du serveur
 server.listen(process.env.FRONT_PORT, function () {
-    console.log('CORS-enabled web server listening on port 80')
+    console.log(`CORS-enabled web server listening on port ${process.env.FRONT_PORT}`);
 })
