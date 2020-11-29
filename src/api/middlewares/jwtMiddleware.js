@@ -90,7 +90,7 @@ exports.verify_token_admin = (req,res,next) => {
  */
 exports.verify_token_tl = (req,res,next) => {
     let token = req.headers['authorization'];
-    let role = "tl";
+    let role = ["tl","admin"];
     if(typeof token != 'undefined'){
         jwt.verify(token, JWT_SECRET, (error) => {
             if(error){
@@ -98,7 +98,7 @@ exports.verify_token_tl = (req,res,next) => {
             }
             else {
                 userRole = jwt.decode(token);
-                if(role == userRole.role){
+                if(role.indexOf(userRole.role) !== -1){
                     next();
                     console.log(jwt.decode(token)); 
                 } else {
@@ -121,7 +121,7 @@ exports.verify_token_tl = (req,res,next) => {
  */
 exports.verify_token_tm = (req,res,next) => {
     let token = req.headers['authorization'];
-    let role = "tm";
+    let role = ["tm","tl","admin"];
     if(typeof token != 'undefined'){
         jwt.verify(token, JWT_SECRET, (error) => {
             if(error){
@@ -129,7 +129,7 @@ exports.verify_token_tm = (req,res,next) => {
             }
             else {
                 userRole = jwt.decode(token);
-                if(role == userRole.role){
+                if(role.indexOf(userRole.role) !== -1){
                     next();
                     console.log(jwt.decode(token)); 
                 } else {
@@ -152,7 +152,7 @@ exports.verify_token_tm = (req,res,next) => {
  */
 exports.verify_token_user = (req,res,next) => {
     let token = req.headers['authorization'];
-    let role = "user";
+    let role = ["user","tm","tl","admin"];
     if(typeof token != 'undefined'){
         jwt.verify(token, JWT_SECRET, (error) => {
             if(error){
@@ -160,7 +160,7 @@ exports.verify_token_user = (req,res,next) => {
             }
             else {
                 userRole = jwt.decode(token);
-                if(role == userRole.role){
+                if(role.indexOf(userRole.role) !== -1){
                     next();
                     console.log(jwt.decode(token)); 
                 } else {

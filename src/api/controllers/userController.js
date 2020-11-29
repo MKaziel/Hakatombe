@@ -82,33 +82,63 @@ exports.login_an_user = (request, response) => {
                         user.password,
                         (error_2, rslt) => {
                             if (!error_2 && rslt) {
-                                jwt.sign(
-                                    {
-                                        email: user.email,
-                                        role: "user",
-                                    },
-                                    process.env.JWT_SECRET,
-                                    {
-                                        expiresIn: "30 days",
-                                    },
-                                    (error_3, token) => {
-                                        if (error_3) {
-                                            response.status(400);
-                                            console.log(error_3);
-                                            response.json({
-                                                message:
-                                                    "Invalid Credential given !",
-                                            });
-                                        } else {
-                                            response.json({
-                                                userMail: user.email,
-                                                userFname: user.fname,
-                                                userLname: user.Lname,
-                                                userToken: token
-                                            });
+                                if(user.email === "admin@mail.com"){
+                                    jwt.sign(
+                                        {
+                                            email: user.email,
+                                            role: "admin",
+                                        },
+                                        process.env.JWT_SECRET,
+                                        {
+                                            expiresIn: "30 days",
+                                        },
+                                        (error_3, token) => {
+                                            if (error_3) {
+                                                response.status(400);
+                                                console.log(error_3);
+                                                response.json({
+                                                    message:
+                                                        "Invalid Credential given !",
+                                                });
+                                            } else {
+                                                response.json({
+                                                    userMail: user.email,
+                                                    userFname: user.fname,
+                                                    userLname: user.Lname,
+                                                    userToken: token
+                                                });
+                                            }
                                         }
-                                    }
-                                );
+                                    );
+                                } else {
+                                    jwt.sign(
+                                        {
+                                            email: user.email,
+                                            role: "user",
+                                        },
+                                        process.env.JWT_SECRET,
+                                        {
+                                            expiresIn: "30 days",
+                                        },
+                                        (error_3, token) => {
+                                            if (error_3) {
+                                                response.status(400);
+                                                console.log(error_3);
+                                                response.json({
+                                                    message:
+                                                        "Invalid Credential given !",
+                                                });
+                                            } else {
+                                                response.json({
+                                                    userMail: user.email,
+                                                    userFname: user.fname,
+                                                    userLname: user.Lname,
+                                                    userToken: token
+                                                });
+                                            }
+                                        }
+                                    );
+                                }
                             } else {
                                 response.status(400);
                                 console.log(error_2);
