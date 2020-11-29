@@ -15,7 +15,7 @@ Pour configurer la connexion entre l'API et la partie Front de l'application il 
  - FRONT : .env --> PORT
  - JWT_KEY : .env --> Mettre une clef de connexion
  
- #POSTMAN
+ # POSTMAN
  Pour pouvoir tester entièrement les possibilités de l'API, nous avons joins une base de requête pour POSTMAN
  Afin de pouvoir les tester, il faut :
   - Créer un utilisateur
