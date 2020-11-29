@@ -4,7 +4,7 @@ module.exports = (server) => {
 
     
     server.route('/questionnaire')
-        //admin
+        //all
         .get(questionnaireController.list_all_questionnaire)
         //admin
         .post(jwtMiddleware.verify_token_admin, questionnaireController.create_a_questionnaire);

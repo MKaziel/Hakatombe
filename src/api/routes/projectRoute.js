@@ -11,9 +11,9 @@ module.exports = (server) => {
     server.route('/project/:project_id') // req.params.school_id
         //all
         .get(projectController.get_a_project)
-        //owner 
+        //tl
         .put(jwtMiddleware.verify_token_tl, projectController.update_a_project)
-        //owner 
+        //admin
         .delete(jwtMiddleware.verify_token_admin, projectController.delete_a_project);
 
     server.route('/teams/:team_id/project')
