@@ -2,6 +2,12 @@ const middleware = require('../middlewares/jwtMiddleware');
 const Team = require('../models/teamModel');
 const User = require('../models/userModels');
 
+/**
+ * 
+ * @param {*} request 
+ * @param {*} response
+ * Récupérer toutes les teams 
+ */
 exports.get_all_team = (request,response) => {
     Team.find({}, (error, teams) => {
         if (error) {
@@ -17,6 +23,12 @@ exports.get_all_team = (request,response) => {
     });
 }
 
+/**
+ * 
+ * @param {*} request 
+ * @param {*} response
+ * Créer une team 
+ */
 exports.create_a_team = (request,response) => {
     let new_team = new Team(request.body);
     new_team.save((error, team) => {
@@ -33,6 +45,12 @@ exports.create_a_team = (request,response) => {
     });
 }
 
+/**
+ * 
+ * @param {*} request 
+ * @param {*} response
+ * Récupéré une team avec son ID 
+ */
 exports.get_a_team = (request,response) => {
     Team.findById(request.params.team_id, (error, team) => {
         if (error) {
@@ -48,6 +66,12 @@ exports.get_a_team = (request,response) => {
     });
 }
 
+/**
+ * 
+ * @param {*} request 
+ * @param {*} response
+ * Mettre à jour une team 
+ */
 exports.update_a_team = (request,response) => {
     Team.findByIdAndUpdate(request.params.team_id, request.body, {
         new: true
@@ -65,6 +89,12 @@ exports.update_a_team = (request,response) => {
     });
 }
 
+/**
+ * 
+ * @param {*} request 
+ * @param {*} response
+ * Supprimer une team 
+ */
 exports.delete_a_team = (request,response) => {
     Team.findByIdAndRemove(request.params.param_id, (error, team) => {
         if (error) {

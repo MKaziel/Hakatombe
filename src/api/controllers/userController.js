@@ -3,6 +3,12 @@ const User = require("../models/userModels");
 const Bcrypt = require("bcrypt");
 const SaltRounds = 10;
 
+/**
+ * 
+ * @param {*} request 
+ * @param {*} response
+ * Lister tous les utilisateurs 
+ */
 exports.list_all_users = (request, response) => {
     User.find({}, (error, users) => {
         if (error) {
@@ -18,6 +24,12 @@ exports.list_all_users = (request, response) => {
     });
 };
 
+/**
+ * 
+ * @param {*} request 
+ * @param {*} response
+ * S'Inscrire / Créer un utilisateur 
+ */
 exports.create_an_user = (request, response) => {
     let rgx = new RegExp(
         "^[^W][a-zA-Z0-9_]+(.[a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+(.[a-zA-Z0-9_]+)*.[a-zA-Z]{2,4}$"
@@ -60,6 +72,12 @@ exports.create_an_user = (request, response) => {
     }
 };
 
+/**
+ * 
+ * @param {*} request 
+ * @param {*} response
+ * Se Connecter / Connecter un utilisateur 
+ */
 exports.login_an_user = (request, response) => {
     let rgx = new RegExp(
         "^[^\\W][a-zA-Z0-9_]+(\\.[a-zA-Z0-9_]+)*\\@[a-zA-Z0-9_]+(.[a-zA-Z0-9_]+)*\\.[a-zA-Z]{2,4}$"
@@ -166,6 +184,12 @@ exports.login_an_user = (request, response) => {
     }
 };
 
+/**
+ * 
+ * @param {*} request 
+ * @param {*} response 
+ * Mettre à jour un utilisateur
+ */
 exports.update_user = (request, response) => {
     User.findByIdAndUpdate(request.params.user_id, request.body ,(error, users) => {
         if (error) {
@@ -181,6 +205,12 @@ exports.update_user = (request, response) => {
     });
 };
 
+/**
+ * 
+ * @param {*} request 
+ * @param {*} response
+ * Récupérer tous les membres d'une team 
+ */
 exports.get_users_team = (request, response) => {
     User.find({ team_id: request.params.team_id }, (error, users) => {
         if (error) {

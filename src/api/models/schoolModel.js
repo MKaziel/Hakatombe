@@ -1,6 +1,9 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
+/**
+ * Modèle de l'école
+ */
 let schoolSchema = new Schema({
     name: {
         type: String,

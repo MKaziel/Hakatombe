@@ -1,6 +1,9 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
+/**
+ * Modèle d'une team
+ */
 let teamSchema = new Schema({
     name: {
         type: String,
